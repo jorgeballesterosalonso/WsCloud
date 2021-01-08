@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="banio" class="entidad.Habitacion">
+		<property name="tipo" value="BANIO"></property>
+		<property name="metros" value="7"></property>
+	</bean>
+
+	<bean id="cocina" class="entidad.Habitacion">
+		<property name="tipo" value="COCINA"></property>
+		<property name="metros" value="15"></property>
+	</bean>
+
+	<bean id="dormitorio1" class="entidad.Habitacion">
+		<property name="tipo"
+			value="DORMITORIO"></property>
+		<property name="metros" value="20"></property>
+	</bean>
+
+	<bean id="dormitorio2" class="entidad.Habitacion">
+		<property name="tipo" value="DORMITORIO"></property>
+		<property name="metros" value="24"></property>
+	</bean>
+
+	<bean id="Casita" class="entidad.Casa">
+		<property name="direccion">
+			<bean class="entidad.Direccion">
+				<property name="tipoVia" value="Calle"></property>
+				<property name="calle" value="No libertad"></property>
+				<property name="cp" value="28333"></property>
+				<property name="numero" value="23"></property>
+			</bean>
+		</property>
+		<property name="habitaciones">
+			<bean class="java.util.ArrayList">
+				<constructor-arg>
+					<list>
+						<ref bean="banio" />
+						<ref bean="cocina" />
+						<ref bean="dormitorio1" />
+						<ref bean="dormitorio2" />
+					</list>
+				</constructor-arg>
+			</bean>
+		</property>
+
+	</bean>
+
+</beans>
